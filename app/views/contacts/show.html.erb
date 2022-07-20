@@ -1,0 +1,12 @@
+<h1><%= @contact.name %></h1>
+<p><%= @contact.phone_number %></p>
+
+<div>
+    <%= link_to "Edit", edit_contact_path(@contact) %>
+</div>
+<div>
+    <%= link_to "Destroy", contact_path(@contact), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                    } %></li>
+</div>

@@ -1,0 +1,15 @@
+<h1> Current Contacts </h1>
+
+<ul>
+    <% @contacts.each do |contact| %>
+        <li> 
+          <%= link_to contact.name, contact %>
+        </li>
+    <% end %>
+</ul>
+<br>
+<%= link_to "Create a New Contact", new_contact_path %>
+
+<div>
+    <%= link_to "Back to Home", "/home" %>
+</div>
