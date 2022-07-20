@@ -95,6 +95,11 @@ Rails.application.configure do
 
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  config.twilio_auth_token = ENV.fetch('TWILIO_AUTH_TOKEN')
+  config.twilio_account_sid = ENV.fetch('TWILIO_ACCOUNT_SID')
+
+  config.hosts << /[a-z0-9-]+\.herokuapp\.com/
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
