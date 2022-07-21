@@ -17,8 +17,11 @@ class TwilioController < ApplicationController
 
   def status
     status = params["MessageStatus"]
-    text_sent = params["Body"]
+    twilio_id = params["MessageSid"]
+    incoming_message = Message.find_by(twilio_id: twilio_id)
 
-    render plain: "The text was #{status}"
+    incoming_message.update(status: status) if incoming_message.present?
+
+    head :no_content # 204
   end 
 end
