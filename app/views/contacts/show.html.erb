@@ -1,14 +1,22 @@
-<h1><%= @contact.name %></h1>
-<p><%= @contact.phone_number %></p>
-
 <div>
-    <%= link_to "Edit", edit_contact_path(@contact) %>
-</div>
-<div>
-    <%= link_to "Destroy", contact_path(@contact), data: {
+    <div>
+        <h1 class="text-3xl"><%= @contact.name %></h1>
+        <p class="text-3xl"><%= @contact.phone_number %></p>
+    </div>
+    <div class="flex space-x-4 my-12">
+        <div>
+            <%= link_to "Edit", edit_contact_path(@contact), class: "border-black border-solid border-2 rounded-lg p-4 bg-gray-200 hover:bg-blue-400"%>
+        </div>
+        <div>
+            <%= link_to "Destroy", contact_path(@contact), 
+                class: "border-black border-solid border-2 rounded-lg p-4 bg-gray-200 hover:bg-blue-400", 
+                data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                    } %></li>
-</div>
+                } 
+            %>
+        </div>
+    </div>
 
-<%= link_to "Back to Contacts", contacts_path %>
+    <%= link_to "Back to Contacts", contacts_path, class: "text-blue-600" %>
+</div>

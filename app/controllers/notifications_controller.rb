@@ -47,7 +47,7 @@ class NotificationsController < ApplicationController
                     from_contact_id: Contact.find_by(name: "Chris").id,
                     twilio_id: message.sid, 
                     status: message.status,
-                    scheduled_time: notifcation_date
+                    scheduled_time: notification_date
                 )
             end 
         rescue NoMethodError, TypeError

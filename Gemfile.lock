@@ -145,6 +145,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.7-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.7-x86_64-linux)
+      racc (~> 1.4)
     pg (1.4.1)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -204,6 +206,12 @@ GEM
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
     strscan (3.0.3)
+    tailwindcss-rails (2.0.10)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.10-arm64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.10-x86_64-linux)
+      railties (>= 6.0.0)
     thor (1.2.1)
     time (0.2.0)
       date
@@ -238,6 +246,7 @@ GEM
 PLATFORMS
   arm64-darwin-21
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap
@@ -253,6 +262,7 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   stimulus-rails
+  tailwindcss-rails (~> 2.0)
   time
   turbo-rails
   twilio-ruby (~> 5.69.0)

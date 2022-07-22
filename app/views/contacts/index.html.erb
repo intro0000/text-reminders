@@ -1,15 +1,44 @@
-<h1> Current Contacts </h1>
-
-<ul>
-    <% @contacts.each do |contact| %>
-        <li> 
-          <%= link_to contact.name, contact %>
-        </li>
-    <% end %>
-</ul>
-<br>
-<%= link_to "Create a New Contact", new_contact_path %>
-
 <div>
-    <%= link_to "Back to Home", "/home" %>
+  <h1 class="text-2xl mb-4"> Current Contacts </h1>
+  <div class="pl-8">
+    <ul class="list-disc">
+        <% @contacts.each do |contact| %>
+            <li>
+              <%= link_to contact.name, contact, class: "text-blue-600" %>
+            </li>
+        <% end %>
+    </ul>
+  </div>
+  <div class="my-16">
+    <%= link_to "Create a New Contact", new_contact_path, class: "border-black border-solid border-2 rounded-lg p-8 bg-gray-200 hover:bg-blue-400"%>
+  </div>
+  <div class="mb-8">
+    <h2 class="bg-slate-800 text-xl text-white text-center py-4"> Currently Scheduled Texts </h2>
+    <table class="border-collapse table-auto w-full text-sm dark:bg-slate-800">
+      <% if @scheduled_messages.present? %>
+      <thead>
+        <tr>
+          <th class="border-b dark:border-slate-600 font-medium p-4 px-8 text-slate-400 dark:text-slate-200">To</th>
+          <th class="border-b dark:border-slate-600 font-medium text-slate-400 dark:text-slate-200">From</th>
+          <th class="border-b dark:border-slate-600 font-medium text-slate-400 dark:text-slate-200">Scheduled Time</th>
+        </tr>
+      </thead>
+        <tbody class="dark:bg-slate-800">
+            <% @scheduled_messages.each do |message| %>
+              <tr class="border-b border-slate-100 dark:border-slate-700 text-white pl-4">
+                <td class="p-4 px-8"> <%= message.to_contact.name%> </td>
+                <td class="p-4 px-8"> <%= message.from_contact.name%> </td>
+                <td class="p-4 px-8"> <%= message.scheduled_time %> </td>
+              </tr>
+            <% end %>
+        </tbody>
+      <% else %>
+        <div class="border-b dark:border-slate-600 bg-slate-800 font-medium p-4 px-8 text-slate-400 dark:text-slate-200"> No scheduled messages </div>
+      <% end %>
+    </table>
+  </div>
+
+  <div>
+      <%= link_to "Back to Home", "/home", class: "text-blue-600" %>
+  </div>
 </div>

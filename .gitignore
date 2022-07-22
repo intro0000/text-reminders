@@ -39,3 +39,5 @@
 
 # Ignore gitattributes
 .gitattributes
+/app/assets/builds/*
+!/app/assets/builds/.keep

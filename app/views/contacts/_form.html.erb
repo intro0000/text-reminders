@@ -1,6 +1,6 @@
 <%= form_with model: contact do |form| %>
   <div>
-    <%= form.label :name %><br>
+    <div class="font-medium"><%= form.label :name %><br></div>
     <%= form.text_field :name %>
     <% contact.errors.full_messages_for(:name).each do |error| %>
         <div><%= error %></div>
@@ -8,14 +8,14 @@
   </div>
  
   <div>
-    <%= form.label :phone_number %><br>
+    <div class="font-medium"><%= form.label :phone_number %><br></div>
     <%= form.text_field :phone_number %>
     <% contact.errors.full_messages_for(:phone_number).each do |error| %>
         <div><%= error %></div>
     <% end %>
   </div>
  
-  <div>
+  <div class="text-blue-600">
     <%= form.submit %>
   </div>
 <% end %>
