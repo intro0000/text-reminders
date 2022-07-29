@@ -1,7 +1,9 @@
 class ContactsController < ApplicationController
     def index
         @contacts = Contact.all.order(:created_at)
-        @scheduled_messages = Message.all.where(status: "scheduled")
+        @scheduled_messages = Message.where(status: "scheduled")
+        today_start = DateTime.now.in_time_zone(Time.zone).beginning_of_day 
+        @delivered_messages_today = Message.where(status: "delivered").where("updated_at > ?", today_start)
     end
 
     def show
